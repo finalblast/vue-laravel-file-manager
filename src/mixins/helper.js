@@ -38,7 +38,7 @@ export default {
      * @returns {string}
      */
     async getFileDimension(disk, file) {
-      const url = `${this.$store.getters['fm/settings/baseUrl']}preview?disk=${disk || 'images'}&path=${encodeURIComponent(file.path)}&v=${file.timestamp}`;
+      const url = `${this.$store.getters['fm/settings/baseUrl']}/preview?disk=${disk || 'images'}&path=${encodeURIComponent(file.path)}&v=${file.timestamp}`;
       let dimensions = 'N/A x N/A';
       const imageLoadPromise = new Promise((resolve) => {
         const img = new Image();

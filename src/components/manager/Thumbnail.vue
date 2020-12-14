@@ -1,13 +1,10 @@
 <template>
-    <figure class="fm-thumbnail">
-        <transition name="fade" mode="out-in">
-            <i v-if="!src" class="far fa-file-image fa-5x pb-2"/>
-            <img v-else
-                 v-bind:src="src"
-                 v-bind:alt="file.filename"
-                 class="img-thumbnail">
-        </transition>
-    </figure>
+  <figure class="fm-thumbnail">
+    <transition name="fade" mode="out-in">
+      <i v-if="!src" class="far fa-file-image fa-5x pb-2" />
+      <img v-else v-bind:src="src" v-bind:alt="file.filename" class="img-thumbnail">
+    </transition>
+  </figure>
 </template>
 
 <script>
@@ -43,8 +40,7 @@ export default {
               obs.unobserve(this.$el);
             }
           });
-        },
-        {
+        }, {
           root: null,
           threshold: '0.5',
         },
@@ -82,7 +78,7 @@ export default {
           this.src = `data:${mimeType};base64,${imgBase64}`;
         });
       } else {
-        this.src = `${this.$store.getters['fm/settings/baseUrl']}thumbnails?disk=${this.disk}&path=${encodeURIComponent(this.file.path)}&v=${this.file.timestamp}`;
+        this.src = `${this.$store.getters['fm/settings/baseUrl']}/thumbnails?disk=${this.disk}&path=${encodeURIComponent(this.file.path)}&v=${this.file.timestamp}`;
       }
     },
   },
@@ -90,21 +86,21 @@ export default {
 </script>
 
 <style lang="scss">
-    .fm-thumbnail {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .img-thumbnail {
-            width: 88px;
-            height: 88px;
-        }
-
-        .fade-enter-active, .fade-leave-active {
-            transition: opacity .3s;
-        }
-        .fade-enter, .fade-leave-to {
-            opacity: 0;
-        }
-    }
+.fm-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .img-thumbnail {
+    width: 88px;
+    height: 88px;
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity .3s;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+}
 </style>
