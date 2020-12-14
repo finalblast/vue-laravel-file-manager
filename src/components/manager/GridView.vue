@@ -101,6 +101,7 @@ export default {
 <style lang="scss">
 .fm-grid {
   padding-top: 1rem;
+  padding-bottom: 5rem;
   .fm-grid-item {
     position: relative;
     width: 125px;
